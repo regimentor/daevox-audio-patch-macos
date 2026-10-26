@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleIdentifier</key><string>audio.audio-patch.integration-probe</string>
+<key>CFBundleName</key><string>AudioPatch Integration Probe</string>
+<key>NSMicrophoneUsageDescription</key><string>AudioPatch проверяет реальную передачу каналов GoXLR в собственный виртуальный микрофон. Аудиозапись не сохраняется.</string>
+</dict></plist>

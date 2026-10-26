@@ -1,0 +1,38 @@
+name: HAL driver tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: driver-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  driver:
+    runs-on: macos-15
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Check repository files
+        run: |
+          git diff --check
+          zsh -n Scripts/*.sh
+          plutil -lint DaevoxAudioPatch.xcodeproj/project.pbxproj VirtualAudioDriver/Info.plist HardwareTests/ProbeInfo.plist
+      - name: Compile plug-in for isolated host tests
+        # The product still builds in Xcode 27. This test module needs only the
+        # public CoreAudio C ABI and runs on the hosted runner without installation.
+        run: |
+          xcrun clang++ -std=c++20 -O2 -bundle \
+            VirtualAudioDriver/AudioPatchDriver.cpp \
+            -framework CoreAudio -framework CoreFoundation \
+            -o "$RUNNER_TEMP/AudioPatchTest.bundle"
+      - name: Run actual driver interface tests
+        run: Scripts/test-driver.sh "$RUNNER_TEMP/AudioPatchTest.bundle"

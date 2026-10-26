@@ -1,0 +1,29 @@
+# Xcode and generated products
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xcresult
+*.profraw
+*.profdata
+*.dSYM/
+*.app/
+*.driver/
+*.ipa
+*.pkg
+*.dmg
+
+# Local validation, signing and environment files
+Documentation/Local/
+*.local.xcconfig
+.env
+.env.*
+!.env.example
+*.p12
+*.p8
+*.mobileprovision
+*.provisionprofile
+
+# macOS
+.DS_Store
+.AppleDouble

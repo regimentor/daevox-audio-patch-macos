@@ -6,6 +6,11 @@
 	objectVersion = 110;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A10000000000000000000008 /* AudioPatchDriver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A10000000000000000000009 /* AudioPatchDriver.cpp */; };
+		A1000000000000000000000F /* AudioPatch.driver in Embed HAL Driver */ = {isa = PBXBuildFile; fileRef = A10000000000000000000005 /* AudioPatch.driver */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		5C5C363C308FC0F40099CA7A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -21,12 +26,34 @@
 			remoteGlobalIDString = 5C5C362D308FC0F30099CA7A;
 			remoteInfo = DaevoxAudioPatch;
 		};
+		A1000000000000000000000D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C5C3626308FC0F30099CA7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A10000000000000000000001;
+			remoteInfo = AudioPatchDriver;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A1000000000000000000000E /* Embed HAL Driver */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = Driver;
+			dstSubfolder = Resources;
+			files = (
+				A1000000000000000000000F /* AudioPatch.driver in Embed HAL Driver */,
+			);
+			name = "Embed HAL Driver";
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5C5C362E308FC0F30099CA7A /* DaevoxAudioPatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DaevoxAudioPatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C5C363B308FC0F40099CA7A /* DaevoxAudioPatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaevoxAudioPatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C5C3645308FC0F40099CA7A /* DaevoxAudioPatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DaevoxAudioPatchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000000000000000000005 /* AudioPatch.driver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioPatch.driver; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000000000000000000009 /* AudioPatchDriver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AudioPatchDriver.cpp; sourceTree = "<group>"; };
+		A1000000000000000000000B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -63,6 +90,11 @@
 			files = (
 			);
 		};
+		A10000000000000000000004 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -70,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				5C5C3630308FC0F30099CA7A /* DaevoxAudioPatch */,
+				A1000000000000000000000A /* VirtualAudioDriver */,
 				5C5C363E308FC0F40099CA7A /* DaevoxAudioPatchTests */,
 				5C5C3648308FC0F40099CA7A /* DaevoxAudioPatchUITests */,
 				5C5C362F308FC0F30099CA7A /* Products */,
@@ -80,10 +113,20 @@
 			isa = PBXGroup;
 			children = (
 				5C5C362E308FC0F30099CA7A /* DaevoxAudioPatch.app */,
+				A10000000000000000000005 /* AudioPatch.driver */,
 				5C5C363B308FC0F40099CA7A /* DaevoxAudioPatchTests.xctest */,
 				5C5C3645308FC0F40099CA7A /* DaevoxAudioPatchUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A1000000000000000000000A /* VirtualAudioDriver */ = {
+			isa = PBXGroup;
+			children = (
+				A10000000000000000000009 /* AudioPatchDriver.cpp */,
+				A1000000000000000000000B /* Info.plist */,
+			);
+			path = VirtualAudioDriver;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +139,7 @@
 				5C5C362A308FC0F30099CA7A /* Sources */,
 				5C5C362B308FC0F30099CA7A /* Frameworks */,
 				5C5C362C308FC0F30099CA7A /* Resources */,
+				A1000000000000000000000E /* Embed HAL Driver */,
 			);
 			buildRules = (
 			);
@@ -118,6 +162,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A1000000000000000000000C /* PBXTargetDependency */,
 				5C5C363D308FC0F40099CA7A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
@@ -148,6 +193,20 @@
 			productName = DaevoxAudioPatchUITests;
 			productReference = 5C5C3645308FC0F40099CA7A /* DaevoxAudioPatchUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		A10000000000000000000001 /* AudioPatchDriver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A10000000000000000000002 /* Build configuration list for PBXNativeTarget "AudioPatchDriver" */;
+			buildPhases = (
+				A10000000000000000000003 /* Sources */,
+				A10000000000000000000004 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			name = AudioPatchDriver;
+			productName = AudioPatch;
+			productReference = A10000000000000000000005 /* AudioPatch.driver */;
+			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -186,6 +245,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				A10000000000000000000001 /* AudioPatchDriver */,
 				5C5C362D308FC0F30099CA7A /* DaevoxAudioPatch */,
 				5C5C363A308FC0F40099CA7A /* DaevoxAudioPatchTests */,
 				5C5C3644308FC0F40099CA7A /* DaevoxAudioPatchUITests */,
@@ -227,6 +287,12 @@
 			files = (
 			);
 		};
+		A10000000000000000000003 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				A10000000000000000000008 /* AudioPatchDriver.cpp in Sources */,
+			);
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -239,6 +305,11 @@
 			isa = PBXTargetDependency;
 			target = 5C5C362D308FC0F30099CA7A /* DaevoxAudioPatch */;
 			targetProxy = 5C5C3646308FC0F40099CA7A /* PBXContainerItemProxy */;
+		};
+		A1000000000000000000000C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A10000000000000000000001 /* AudioPatchDriver */;
+			targetProxy = A1000000000000000000000D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -278,7 +349,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 7XS5L9G6GR;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -342,7 +413,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 7XS5L9G6GR;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -371,13 +442,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7XS5L9G6GR;
-				ENABLE_APP_SANDBOX = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = AudioPatch;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "AudioPatch передаёт выбранные каналы микрофона в виртуальное аудиоустройство.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -388,10 +462,10 @@
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -403,13 +477,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7XS5L9G6GR;
-				ENABLE_APP_SANDBOX = YES;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = AudioPatch;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "AudioPatch передаёт выбранные каналы микрофона в виртуальное аудиоустройство.";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -420,10 +497,10 @@
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = nonisolated;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -433,7 +510,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7XS5L9G6GR;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
@@ -443,7 +520,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DaevoxAudioPatch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DaevoxAudioPatch";
 			};
 			name = Debug;
@@ -454,7 +531,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7XS5L9G6GR;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 27.0;
 				MARKETING_VERSION = 1.0;
@@ -464,7 +541,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DaevoxAudioPatch.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DaevoxAudioPatch";
 			};
 			name = Release;
@@ -474,7 +551,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7XS5L9G6GR;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AudioPatch.DaevoxAudioPatchUITests;
@@ -483,7 +560,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TEST_TARGET_NAME = DaevoxAudioPatch;
 			};
 			name = Debug;
@@ -493,7 +570,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 7XS5L9G6GR;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = AudioPatch.DaevoxAudioPatchUITests;
@@ -502,8 +579,64 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TEST_TARGET_NAME = DaevoxAudioPatch;
+			};
+			name = Release;
+		};
+		A10000000000000000000006 /* Debug configuration for PBXNativeTarget "AudioPatchDriver" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = VirtualAudioDriver/Info.plist;
+				INSTALL_PATH = "/Library/Audio/Plug-Ins/HAL";
+				MACH_O_TYPE = mh_bundle;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					CoreAudio,
+					"-framework",
+					CoreFoundation,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "audio.audio-patch.driver";
+				PRODUCT_NAME = AudioPatch;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = driver;
+			};
+			name = Debug;
+		};
+		A10000000000000000000007 /* Release configuration for PBXNativeTarget "AudioPatchDriver" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = VirtualAudioDriver/Info.plist;
+				INSTALL_PATH = "/Library/Audio/Plug-Ins/HAL";
+				MACH_O_TYPE = mh_bundle;
+				MACOSX_DEPLOYMENT_TARGET = 27.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					CoreAudio,
+					"-framework",
+					CoreFoundation,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "audio.audio-patch.driver";
+				PRODUCT_NAME = AudioPatch;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = driver;
 			};
 			name = Release;
 		};
@@ -539,6 +672,14 @@
 			buildConfigurations = (
 				5C5C3654308FC0F40099CA7A /* Debug configuration for PBXNativeTarget "DaevoxAudioPatchUITests" */,
 				5C5C3655308FC0F40099CA7A /* Release configuration for PBXNativeTarget "DaevoxAudioPatchUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		A10000000000000000000002 /* Build configuration list for PBXNativeTarget "AudioPatchDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A10000000000000000000006 /* Debug configuration for PBXNativeTarget "AudioPatchDriver" */,
+				A10000000000000000000007 /* Release configuration for PBXNativeTarget "AudioPatchDriver" */,
 			);
 			defaultConfigurationName = Release;
 		};

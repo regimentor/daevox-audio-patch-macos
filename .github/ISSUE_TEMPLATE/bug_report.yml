@@ -1,0 +1,23 @@
+name: Ошибка
+description: Ошибка приложения, драйвера или аудиопотока
+title: "[Bug] "
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Окружение
+      description: Версия macOS, модель Mac/архитектура, версия Xcode или сборки AudioPatch, модель аудиоустройства.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Как воспроизвести
+      description: Шаги, выбранные каналы и частота, ожидаемый и фактический результат.
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Диагностика
+      description: Статус драйвера/Microphone, buffer size, underrun/overrun и capture errors. Уберите персональные UID, пути и записи голоса.
